@@ -1,41 +1,20 @@
-# LapTrinhTichHop
-Năm 4 kì 1 
-# BTL-LapTrinhTichHop
-Đề tài: Quản lý nghiên cứu khoa học của giáo viên
+# Quản lý giáo viên
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-## Cấu hình lần đầu
+Phần mềm quản lý giao viên framework sử dụng
 
-### Back end:
-  b1: Mở SQL lên và chạy file QuanLyGiaoVienDB_LTTH.sql
-  
-  b2: Vào file: Web.config trong đoạn:
-  
-  ```
-<connectionStrings>
-    <add name="QuanLyGiaoVienDb" connectionString="data source=MOUNTAIN-CHAN\SQLEXPRESS;initial catalog=QuanLyGiaoVienDB_LTTH;integrated    security=True;MultipleActiveResultSets=True;App=EntityFramework" providerName="System.Data.SqlClient" />
- </connectionStrings>
-  ```
-  
-  Sửa lại: ``` source=MOUNTAIN-CHAN\SQLEXPRESS; ``` thành tên Sqlser của máy mình.
-  
-  
- ### Front end: 
-  Chạy bằng angular 7, trước tiên cần chạy lệnh "npm install" để add các thư viện cần thiết.
-  
-  
- # Mô tả chức năng
- 
- Quản lý thông tin cơ bản và nghiên cứu khoa học của giáo viên:
- 
- ## Thông tin cơ bản gồm có: Bộ môn trực thuộc, tên, mã, địa chỉ, ...
- Xem tổng tải nghiên cứu khoa học theo năm học và kì học
- 
- Xem danh sách các bài báo, đề tài và sach có tham gia
- 
- ## Quản lý nghiên cứu khoa học gồm: 
- 
-  Bài báo: có chức năng thêm, sửa, xóa và thêm, xóa thành viên tham gia
- 
-  Nghiên cứu Đề tài: có chức năng thêm, sửa, xóa và thêm, xóa thành viên tham gia
-  
-  Biên soạn sách: có chức năng thêm, sửa, xóa và thêm, xóa thành viên tham gia
+  - Backend: ASP.NET MVC (4.5.2)
+  - Frontend: ASP.NET MVC (4.7.2)
+  - Database: SQL server
+
+# Developer
+### Hưỡng dẫn sử dụng
+
+##### Run backend 
+ - Port: [http://localhost:5000][PlDb] 
+
+##### Run frontend
+- Port: [http://localhost:5011][PlDb]
+
+### Giao diện người dùng
+Loadding...
