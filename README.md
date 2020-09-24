@@ -1,13 +1,9 @@
-# LapTrinhTichHop
-Năm 4 kì 1 
-# BTL-LapTrinhTichHop
-Đề tài: Quản lý nghiên cứu khoa học của giáo viên
-
+# Quản lý giáo viên
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 Phần mềm quản lý giao viên framework sử dụng
 
-  - Backend: ASP.NET MVC (4.5.2)
+  - Backend: ASP.NET WEB API (4.5.2)
   - Frontend: ASP.NET MVC (4.7.2)
   - Database: SQL server
 
