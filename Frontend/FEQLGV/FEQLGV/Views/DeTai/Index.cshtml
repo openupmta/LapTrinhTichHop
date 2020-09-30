@@ -71,11 +71,11 @@
                                 <div class="form-group">
                                     <select class="form-control" name="IdLoaiDeTai">
                                         <option value="0" selected>Loại đề tài</option>
-                                        <option>option 1</option>
-                                        <option>option 2</option>
-                                        <option>option 3</option>
-                                        <option>option 4</option>
-                                        <option>option 5</option>
+                                        <option value="1">option 1</option>
+                                        <option value="2">option 2</option>
+                                        <option value="3">option 3</option>
+                                        <option value="4">option 4</option>
+                                        <option value="5">option 5</option>
                                     </select>
                                 </div>
                             </div>
@@ -98,11 +98,11 @@
                                 <div class="form-group">
                                     <select class="form-control" name="NamHoc">
                                         <option value="0" selected>Năm học</option>
-                                        <option>option 1</option>
-                                        <option>option 2</option>
-                                        <option>option 3</option>
-                                        <option>option 4</option>
-                                        <option>option 5</option>
+                                        <option value="1">option 1</option>
+                                        <option value="2">option 2</option>
+                                        <option value="3">option 3</option>
+                                        <option value="4">option 4</option>
+                                        <option value="5">option 5</option>
                                     </select>
                                 </div>
                             </div>
@@ -115,11 +115,11 @@
                                 <div class="form-group">
                                     <select class="form-control" name="KiHoc">
                                         <option value="0" selected>Kỳ học</option>
-                                        <option>option 1</option>
-                                        <option>option 2</option>
-                                        <option>option 3</option>
-                                        <option>option 4</option>
-                                        <option>option 5</option>
+                                        <option value="1">option 1</option>
+                                        <option value="2">option 2</option>
+                                        <option value="3">option 3</option>
+                                        <option value="4">option 4</option>
+                                        <option value="5">option 5</option>
                                     </select>
                                 </div>
                             </div>
@@ -150,22 +150,114 @@
 <div class="modal fade" id="edithModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
-          
-                <div class="modal-header">
-                    <h5 class="modal-title w-100 text-center" id="exampleModalCenterTitle">Title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
 
+            <div class="modal-header">
+                <h5 class="modal-title w-100 text-center" id="exampleModalCenterTitle">Title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4 d-flex align-items-center">
+                            <label>Mã đề tài</label>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="ma" placeholder="Bắt buộc" name="Ma">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 d-flex align-items-center">
+                            <label>Tên đề tài</label>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="name" placeholder="Bắt buộc" name="Ten">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 d-flex align-items-center">
+                            <label>Loại đề tài</label>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <select class="form-control" name="IdLoaiDeTai">
+                                    <option value="0" selected>Loại đề tài</option>
+                                    <option value="1">option 1</option>
+                                    <option value="2">option 2</option>
+                                    <option value="3">option 3</option>
+                                    <option value="4">option 4</option>
+                                    <option value="5">option 5</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 d-flex align-items-center">
+                            <label>Cơ quan quản lý</label>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="address" placeholder="Không bắt buộc" name="CoQuanQuanLy">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 d-flex align-items-center">
+                            <label>Năm học</label>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <select class="form-control" name="NamHoc">
+                                    <option value="0" selected>Năm học</option>
+                                    <option value="1">option 1</option>
+                                    <option value="2">option 2</option>
+                                    <option value="3">option 3</option>
+                                    <option value="4">option 4</option>
+                                    <option value="5">option 5</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 d-flex align-items-center">
+                            <label>Kỳ học</label>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <select class="form-control" name="KiHoc">
+                                    <option value="0" selected>Kỳ học</option>
+                                    <option value="1">option 1</option>
+                                    <option value="2">option 2</option>
+                                    <option value="3">option 3</option>
+                                    <option value="4">option 4</option>
+                                    <option value="5">option 5</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-8">
+                            <button type="reset" class="btn btn-warning cancel">
+                                <i class="fas fa-sync-alt"></i>
+                                <span>Làm mới</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <input type="submit" id="Submit" name="Submit" class="btn btn-primary" value="Lưu" />
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <input type="button" id="CreateDeTai" name="Submit" class="btn btn-primary" value="Lưu" />
 
-                </div>
-    
+            </div>
+
         </div>
     </div>
 </div>
@@ -248,11 +340,11 @@
 
                                                 <select class="form-control" name="NamHoc">
                                                     <option value="0" selected>Năm học</option>
-                                                    <option>option 1</option>
-                                                    <option>option 2</option>
-                                                    <option>option 3</option>
-                                                    <option>option 4</option>
-                                                    <option>option 5</option>
+                                                    <option value="1">option 1</option>
+                                                    <option value="2">option 2</option>
+                                                    <option value="3">option 3</option>
+                                                    <option value="4">option 4</option>
+                                                    <option value="5">option 5</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -261,11 +353,11 @@
                                             <div class="form-group">
                                                 <select class="form-control" name="KiHoc">
                                                     <option value="0" selected>Kì học</option>
-                                                    <option>option 1</option>
-                                                    <option>option 2</option>
-                                                    <option>option 3</option>
-                                                    <option>option 4</option>
-                                                    <option>option 5</option>
+                                                    <option value="1">option 1</option>
+                                                    <option value="2">option 2</option>
+                                                    <option value="3">option 3</option>
+                                                    <option value="4">option 4</option>
+                                                    <option value="5">option 5</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -558,6 +650,15 @@
         $('.edit').click(function (event) {
             event.stopPropagation();
             var id_Detai = $(this).data('id').toString();
+            var rowselect = $(this).parent().parent();
+            var cellSelect = rowselect.find('td');
+            $('#edithModal input[name="Ma"').val(cellSelect[2].innerText);
+            $('#edithModal input[name="Ten"').val(cellSelect[2].innerText);
+            $('#edithModal select[name="IdLoaiDeTai"]').val('2');           
+            $('#edithModal input[name="CoQuanQuanLy"').val(cellSelect[4].innerText);
+            $('#edithModal select[name="NamHoc"]').val('2');
+            $('#edithModal select[name="KiHoc"]').val('2');
+
             $('#confirmDel').data('id', id_Detai);
             $('#edithModal').modal('show');
 
