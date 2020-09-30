@@ -150,7 +150,7 @@
 <div class="modal fade" id="edithModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
-            <form>
+          
                 <div class="modal-header">
                     <h5 class="modal-title w-100 text-center" id="exampleModalCenterTitle">Title</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -165,7 +165,7 @@
                     <input type="submit" id="Submit" name="Submit" class="btn btn-primary" value="Lưu" />
 
                 </div>
-            </form>
+    
         </div>
     </div>
 </div>
@@ -174,7 +174,7 @@
 <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <form>
+           
                 <div class="modal-header">
                     <h5 class="modal-title w-100 text-center" id="exampleModalCenterTitle">XÁC NHẬN XÓA ĐỀ TÀI</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -191,7 +191,7 @@
                     </div>
                    
                 </div>
-            </form>
+           
         </div>
     </div>
 </div>
@@ -424,21 +424,21 @@
 
             // reponse after delete DeTai
             DelSuccess(id_Detail) {
-                var idTrs = "#row_" + id_Detail;
-                $(idTrs).remove();
-                var countItem = $('.countItem').last().text();
-                countItem = Number(countItem) - 1;
-                $('.countItem').text(countItem);
+                //var idTrs = "#row_" + id_Detail;
+                //$(idTrs).remove();
+                //var countItem = $('.countItem').last().text();
+                //countItem = Number(countItem) - 1;
+                //$('.countItem').text(countItem);
 
-                var countItemofPage = $('.countItemofPage').first().text();
-                countItemofPage = Number(countItemofPage) - 1;
-                $('.countItemofPage').text(countItemofPage);
+                //var countItemofPage = $('.countItemofPage').first().text();
+                //countItemofPage = Number(countItemofPage) - 1;
+                //$('.countItemofPage').text(countItemofPage);
 
                 var Toast = Swal.mixin({
                     toast: true,
                     position: 'top-end',
                     showConfirmButton: false,
-                    timer: 5000
+                    timer: 10000
                 });
                 Toast.fire({
                     icon: 'success',
