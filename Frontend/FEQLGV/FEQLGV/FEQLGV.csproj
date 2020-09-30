@@ -2445,6 +2445,7 @@
     <Content Include="Views\BaiBao\Index.cshtml" />
     <Content Include="Views\Sach\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\DeTai\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
