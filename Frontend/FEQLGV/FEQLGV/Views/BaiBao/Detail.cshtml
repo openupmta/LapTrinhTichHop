@@ -1,0 +1,352 @@
+﻿
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles{
+    <title>AdminLTE 3 | Product</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/Assets/plugins/fontawesome-free/css/all.min.css">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="/Assets/plugins/daterangepicker/daterangepicker.css">
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link rel="stylesheet" href="/Assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Bootstrap Color Picker -->
+    <link rel="stylesheet" href="/Assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="/Assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="/Assets/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="/Assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- Bootstrap4 Duallistbox -->
+    <link rel="stylesheet" href="/Assets/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+    <!-- BS Stepper -->
+    <link rel="stylesheet" href="/Assets/plugins/bs-stepper/css/bs-stepper.min.css">
+    <!-- dropzonejs -->
+    <link rel="stylesheet" href="/Assets/plugins/dropzone/min/dropzone.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/Assets/dist/css/adminlte.min.css">
+
+
+
+
+    <style>
+        body {
+            padding-right: 0 !important
+        }
+
+        th {
+            font-weight: initial !important
+        }
+    </style>
+}
+
+<!-- Create Modal -->
+<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <form id="createThanhVien" action="#" , method="Get" , enctype="m Bài Báo: Bài báo A
+Mã Bài Báo: DT085CI4Aultipart/form-data">
+                <div class="modal-header">
+                    <h5 class="modal-title w-100 text-center" id="exampleModalCenterTitle">THÊM THÀNH VIÊN bÀI BÁO</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 d-flex align-items-center">
+                                <h5>Loại bài báo</h5>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <select class="form-control select2" style="width: 100%;">
+                                        <option value="0" selected="selected">Chọn giáo viên</option>
+                                        <option>Trần Cao Trưởng</option>
+                                        <option>Tạ Ngọc Ánh</option>
+                                        <option>Hoa Tất Thắng</option>
+                                        <option>Bùi Văn Định</option>
+                                        <option>Hy Đức Mạnh</option>
+                                        <option>Phan Việt Anh</option>
+                                        <option>Tăng Văn Hạ</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 d-flex align-items-center">
+                                <h5>Vai trò</h5>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <select class="form-control" name="Vaitro">
+                                        <option value="0" selected>Vai trò</option>
+                                        <option>option 1</option>
+                                        <option>option 2</option>
+                                        <option>option 3</option>
+                                        <option>option 4</option>
+                                        <option>option 5</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <input type="submit" id="Submit" name="Submit" class="btn btn-primary" value="Lưu" />
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- /. Create Modal -->
+<!-- Create Modal -->
+<div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <input type="submit" id="Submit" name="Submit" class="btn btn-primary" value="Tìm kiếm" />
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- /. Create Modal -->
+</br>
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="row col-5 ">
+
+
+                <div class="col-md-5 d-flex justify-content-center">
+                    <p style="font-size:64px;">BB+</p>
+                </div>
+                <div class="col-md-7">
+                    </br>
+                    <div class="form-group">
+                        <span>Tên bài báo: <span class="nameDeTai">Bài báo A</span></span>
+                    </div>
+                    <div class="form-group">
+                        <span>Mã bài báo: <span class="nameDeTai">DT085CI4A</span></span>
+                    </div>
+                    </br>
+                    <!-- Main content -->
+                    <div class="col-ms-10">
+                        <button type="button" class="btn btn-success" id="bt_createThanhVien" data-toggle="modal" data-target="#createModal">
+                            <i class="fa fa-plus-square"></i> &nbsp;
+                            Thêm mới
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-7">
+                <div class="container-fluid">
+
+                    <div class="row mb-2 d-flex justify-content-center">
+
+                        <h4>Danh sách giáo viên tham gia</h4>
+                    </div>
+                </div><!-- /.container-fluid -->
+                <div class="card">
+                    <div class="card-body">
+                        <table id="example1" class="table table-hover">
+                            <thead>
+                                <tr>
+
+                                    <th>STT</th>
+                                    <th>Mã giáo viên</th>
+                                    <th>Tên giáo viên</th>
+                                    <th>Vai trò</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        <div class="row dataTables_wrapper">
+
+                            <div class="col-sm-12 col-md-6">
+                                <p class="text-">
+                                    <span>Đang hiển thị <span class="countItem">10</span></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+
+@section Scripts{
+    <script src="/Assets/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="/Assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Select2 -->
+    <script src="/Assets/plugins/select2/js/select2.full.min.js"></script>
+    <!-- DataTables -->
+    <script src="/Assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="/Assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="/Assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="/Assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/Assets/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="/Assets/dist/js/demo.js"></script>
+
+    <!-- SweetAlert2 -->
+    <script src="/Assets/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <!-- Toastr -->
+    <script src="/Assets/plugins/toastr/toastr.min.js"></script>
+
+    <!-- Bootstrap Switch -->
+    <script src="/Assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+    <!-- BS-Stepper -->
+    <script src="/Assets/plugins/bs-stepper/js/bs-stepper.min.js"></script>
+
+    <script src="/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+    <script>
+        $(function () {
+            $("#example1").DataTable({
+                "paging": false,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": false,
+                "info": false,
+                "autoWidth": false,
+                "responsive": true,
+
+            });
+        });
+        //----------------//
+
+        ////Initialize Select2 Elements
+        $('.select2').select2()
+        ////--------------//
+
+
+
+        //add class for slidebar
+        $('#DeTai').addClass('menu-open');
+        $('#DeTai>a').addClass('active');
+        //--------------//
+
+        //load data with change pagesize
+        $("#PageSize").change(function () {
+            $("#form1").submit();
+        });
+        //-------------//
+
+        // set class css for ỉtemPage- because pagelist not compatial boostrap 4 in this version of adminLTE
+        $('.pagination a').addClass('page-link');
+        //-------------//
+
+        // reset then open modal create Product
+        $('#bt_createDeTai').click(function () {
+            document.getElementById("createDeTai").reset();
+        });
+        //----------------//
+
+
+
+
+        class DetaiJS {
+            constructor() {
+
+            }
+            loadData() {
+                var table = $("#example1").DataTable();
+                $.each(data, function (index, item) {
+                    table.row.add([
+                        item.Ma,
+                        item.Ten,
+                        item.LoaiDeTai,
+                        item.CoQuanQuanLy,
+                        item.NamHoc,
+                        item.KiHoc,
+                        item.SoThanhVien
+                    ])
+                });
+
+            }
+
+            // reponse after creat new Detai
+            AddSuccess(data) {
+                var res = JSON.parse(data.responseText);
+                if (res.status == true) {
+                    $('.modal').css('display', 'none');
+                    toastr.success('Tạo mới thành công id');
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 2000);
+                }
+                else {
+                    $('.modal-body > .card-body').append("<p>! Không thể lưu. Vui lòng kiểm tra lại dữ liệu</p>");
+                }
+            };
+
+            AddFail(data) {
+                $('.modal-body > .card-body').append("<p>! Lỗi hệ thống</p>");
+            };
+            //-------------//
+
+            // reponse after delete DeTai
+            DelSuccess(id_product) {
+                var idTrs = "#row_" + id_product;
+                $(idTrs).remove();
+                var countItem = $('.countItem').last().text();
+                countItem = Number(countItem) - 1;
+                $('.countItem').text(countItem);
+
+                var countItemofPage = $('.countItemofPage').first().text();
+                countItemofPage = Number(countItemofPage) - 1;
+                $('.countItemofPage').text(countItemofPage);
+
+                var Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 5000
+                });
+                Toast.fire({
+                    icon: 'success',
+                    title: ' complish delete witd id ' + id_product
+                })
+            };
+        }
+
+    </script>
+
+}
+
+
+
