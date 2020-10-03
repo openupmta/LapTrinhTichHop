@@ -13,5 +13,20 @@ namespace FEQLGV.Controllers
         {
             return View();
         }
+
+        public ActionResult BaiBaoKhoaHoc()
+        {
+            return View();
+        }
+
+        public ActionResult NghienCuuDeTai()
+        {
+            return View();
+        }
+
+        public ActionResult BienSoanSach()
+        {
+            return View();
+        }
     }
 }
