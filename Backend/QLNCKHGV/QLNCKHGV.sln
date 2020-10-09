@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29324.140
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLNCKHGV", "QLNCKHGV\QLNCKHGV.csproj", "{C261FB7E-148C-4749-B4FC-C9291341DD49}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLNCKHGV", "QLNCKHGV\QLNCKHGV.csproj", "{EC48600D-6790-44FB-9F18-FFC220ADD364}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C261FB7E-148C-4749-B4FC-C9291341DD49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C261FB7E-148C-4749-B4FC-C9291341DD49}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C261FB7E-148C-4749-B4FC-C9291341DD49}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C261FB7E-148C-4749-B4FC-C9291341DD49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC48600D-6790-44FB-9F18-FFC220ADD364}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC48600D-6790-44FB-9F18-FFC220ADD364}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC48600D-6790-44FB-9F18-FFC220ADD364}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC48600D-6790-44FB-9F18-FFC220ADD364}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {7C52B9E3-6360-4F55-8E51-BF31AE16E067}
 	EndGlobalSection
 EndGlobal
