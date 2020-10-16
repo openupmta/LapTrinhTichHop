@@ -15,7 +15,7 @@ namespace QLNCKHGV.Controllers
         private QuanLyGiaoVienDb db = new QuanLyGiaoVienDb();
         
         [Route("api/GiaoVien/GetAllGiaoVien")]
-        public IHttpActionResult GetAllGiaoVien(int pageNumber, int pageSize)
+        public IHttpActionResult GetAllGiaoVien()
         {
             
             IList<GiaoVienModel> listGiaoVien = null;
@@ -42,7 +42,7 @@ namespace QLNCKHGV.Controllers
 
             //.Skip(pageSize * pageNumber).Take(pageSize)
             return Ok(new {
-                items = listGiaoVien.ToPagedList(pageNumber + 1, pageSize),
+                items = listGiaoVien,
                 totals = totalItems
             });
         }
