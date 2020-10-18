@@ -2449,6 +2449,7 @@
     <Content Include="Views\GiaoVien\BaiBaoKhoaHoc.cshtml" />
     <Content Include="Views\GiaoVien\NghienCuuDeTai.cshtml" />
     <Content Include="Views\GiaoVien\BienSoanSach.cshtml" />
+    <Content Include="Views\Sach\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
