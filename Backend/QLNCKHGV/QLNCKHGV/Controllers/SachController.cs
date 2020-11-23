@@ -281,7 +281,7 @@ namespace QLNCKHGV.Controllers
                 return Ok(new { status = false, message = "Sai dữ liệu đầu vào!" });
             db.Saches.Add(model);
             db.SaveChanges();
-            return Ok(new { status = true, message = "Thêm mới Đề tài thành công!" });
+            return Ok(new { status = true, message = "Thêm mới sách thành công!" });
         }
 
         [Route("api/Sach/ThemThanhVien")]
@@ -310,7 +310,7 @@ namespace QLNCKHGV.Controllers
             dbEntry.KiHoc = model.KiHoc;
             dbEntry.IdLoaiSach = model.IdLoaiSach;
             db.SaveChanges();
-            return Ok(new { status = true, message = "Sửa Đề tài thành công!" });
+            return Ok(new { status = true, message = "Sửa sách thành công!" });
         }
 
         [Route("api/Sach/SuaThanhVien")]
@@ -339,7 +339,7 @@ namespace QLNCKHGV.Controllers
             }
             db.Saches.Remove(dbEntry);
             db.SaveChanges();
-            return Ok(new { status = true, message = "Xóa Đề tài thành công!" });
+            return Ok(new { status = true, message = "Xóa sách thành công!" });
         }
 
         [Route("api/Sach/XoaThanhVien")]
