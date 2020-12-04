@@ -2173,9 +2173,13 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\jsController\BaiBaoJS.js" />
+    <Content Include="Content\jsController\BaiBaoKhoaHocJS.js" />
+    <Content Include="Content\jsController\BienSoanSachJS.js" />
     <Content Include="Content\jsController\DetaiJS.js" />
     <Content Include="Content\jsController\DetailBaiBaoJS.js" />
     <Content Include="Content\jsController\DetailDetaiJS.js" />
+    <Content Include="Content\jsController\GiaoVienJS.js" />
+    <Content Include="Content\jsController\NghienCuuDeTai.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

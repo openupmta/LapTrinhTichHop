@@ -39,7 +39,7 @@ class DetaiJS {
             method: 'GET'
         }).done(function (data) {
 
-            var counter = (self.page - 1) * 10 + 1;
+            var counter = (self.page - 1) * self.pagesize + 1;
             $.each(data.items, function (index, item) {
                 table.row.add([
                     counter,
@@ -89,11 +89,11 @@ class DetaiJS {
                     $('.next').addClass('disabled');
                 }
                 $('.countItem').text(self.pageTotal);
-                var startItemofPage = (self.page - 1) * 10 + 1;
+                var startItemofPage = (self.page - 1) * self.pagesize + 1;
                 if (startItemofPage > self.pageTotal) {
                     startItemofPage = self.pageTotal;
                 }
-                var endItemofPage = self.page * 10;
+                var endItemofPage = self.page * self.pagesize;
                 if (endItemofPage > self.pageTotal) {
                     endItemofPage = self.pageTotal;
                 }

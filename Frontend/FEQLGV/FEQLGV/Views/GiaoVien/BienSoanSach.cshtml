@@ -7,29 +7,25 @@
 @section Styles{
     <title>AdminLTE 3 | Product</title>
 
-    <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="/Assets/plugins/fontawesome-free/css/all.min.css">
-    <!-- daterange picker -->
-    <link rel="stylesheet" href="/Assets/plugins/daterangepicker/daterangepicker.css">
-    <!-- iCheck for checkboxes and radio inputs -->
-    <link rel="stylesheet" href="/Assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-    <!-- Bootstrap Color Picker -->
-    <link rel="stylesheet" href="/Assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
-    <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="/Assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-    <!-- Select2 -->
-    <link rel="stylesheet" href="/Assets/plugins/select2/css/select2.min.css">
-    <link rel="stylesheet" href="/Assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="/Assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="/Assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/Assets/dist/css/adminlte.min.css">
+
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="/Assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="/Assets/plugins/toastr/toastr.min.css">
+
     <!-- Bootstrap4 Duallistbox -->
     <link rel="stylesheet" href="/Assets/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
     <!-- BS Stepper -->
     <link rel="stylesheet" href="/Assets/plugins/bs-stepper/css/bs-stepper.min.css">
-    <!-- dropzonejs -->
-    <link rel="stylesheet" href="/Assets/plugins/dropzone/min/dropzone.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="/Assets/dist/css/adminlte.min.css">
+
 
 
 
@@ -46,8 +42,8 @@
 }
 
 
-</br>
 <!-- Header content -->
+<div id="idGiaoVien" hidden="hidden">@ViewBag.id</div>
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -84,26 +80,30 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <div><b>Họ tên:</b> Nguyễn Đức Hưng</div>
-                                    <div><b>Mã giáo viên:</b> GV16</div>
-                                    <div><b>Số điện thoại:</b> 0328887832</div>
-                                    <div><b>Email:</b> nguyenduchung99hd@gmail.com</div>
+                                    <div><b>Họ tên:</b> <span id="NameGV"></span></div>
+                                    <div><b>Mã giáo viên:</b> <span id="MaGV"></span></div>
+                                    <div><b>Số điện thoại:</b> <span id="DienThoaiGV"></span></div>
+                                    <div><b>Email:</b> <span id="EmailGV"></span></div>
                                 </td>
                                 <td>
-                                    <table>
+                                    <table style="width: 300px;">
                                         <tr style="float: right">
                                             <td>
                                                 <label>
-                                                    <select class="form-control" name="NamHoc" id="namhoc">
-                                                        <option value="0">Năm học</option>
-                                                        <option value="1">2018-2019</option>
-                                                        <option value="2">2019-2020</option>
-                                                        <option value="3">2020-2021</option>
+                                                    <select class="form-control" name="NamHoc" id="searchNam">
+                                                        <option value="0" selected="">--Năm học--</option>
+                                                        <option value="2020-2021">2020-2021</option>
+                                                        <option value="2019-2020">2019-2020</option>
+                                                        <option value="2018-2019">2018-2019</option>
+                                                        <option value="2017-2018">2017-2018</option>
+                                                        <option value="2016-2017">2016-2017</option>
+                                                        <option value="2015-2016">2015-2016</option>
+                                                        <option value="2014-2015">2014-2015</option>
                                                     </select>
                                                 </label>
                                                 &nbsp;&nbsp;&nbsp;
                                                 <label>
-                                                    <select class="form-control" name="HocKy" id="hocky">
+                                                    <select class="form-control" name="HocKy" id="searchKi">
                                                         <option value="0">Học kỳ</option>
                                                         <option value="1">Kỳ 1</option>
                                                         <option value="2">Kỳ 2</option>
@@ -112,7 +112,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><br /><h4>Tổng số sách biên soạn: 0</h4></td>
+                                            <td><br /><h4>Số sách biên soạn: <span id="Total"></span></h4></td>
                                         </tr>
                                     </table>
                                 </td>
@@ -123,18 +123,31 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <button type="button" class="btn btn-flat">
-                            @Html.ActionLink("Bài báo khoa học", "BaiBaoKhoaHoc")
-                        </button>
-                        <button type="button" class="btn btn-flat">
-                            @Html.ActionLink("Nghiên cứu đề tài", "NghienCuuDeTai")
-                        </button>
-                        <button type="button" class="btn btn-default">
-                            @Html.ActionLink("Biên soạn sách", "BienSoanSach")
-                        </button>
-                        <div style="font-size: 3px">&nbsp;</div>
-                        <!-- /.button-->
-                        <table id="example1" class="table table-bordered table-striped">
+                        <div class="d-flex ">
+
+                            <button type="button" class="btn btn-flat">
+                                @Html.ActionLink("Bài báo khoa học", "BaiBaoKhoaHoc", new { @id = ViewBag.id })
+                            </button>
+                            <button type="button" class="btn btn-flat">
+                                @Html.ActionLink("Nghiên cứu đề tài", "NghienCuuDeTai", new { @id = ViewBag.id })
+                            </button>
+                            <button type="button" class="btn btn-default ">
+                                @Html.ActionLink("Biên soạn sách", "BienSoanSach", new { @id = ViewBag.id })
+                            </button>
+                            <div class="dataTables_length ml-auto row" id="example1_length">
+                                <label class="col">
+                                    Show
+                                </label>
+                                <select name="example1_length" aria-controls="example1" class="custom-select custom-select-sm form-control form-control-sm col">
+                                    <option value="5">5</option>
+                                    <option value="10" selected>10</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <table id="example1" class="table table-hover dataTable no-footer dtr-inline collapsed">
                             <thead>
                                 <tr>
                                     <th>STT</th>
@@ -151,28 +164,31 @@
                             <tbody></tbody>
 
                         </table>
+                        <!-- processing load -->
+                        <div class="d-flex justify-content-center">
+                            <div class="processing-example text-info" role="status">
+
+                            </div>
+                            <span class="sr-only">Loading...</span>
+                        </div>
+
+                        <!-- phân trang -->
                         <div class="row dataTables_wrapper">
 
                             <div class="col-sm-12 col-md-6">
                                 <b style="color:navy">
-                                    <span>Đang hiển thị (<span class="startItemofPage">1</span>-<span class="countItemofPage">10</span>) / <span class="countItem">10</span></span>
+                                    <span>Đang hiển thị (<span class="startItemofPage">...</span>-<span class="endItemofPage">...</span>) / <span class="countItem">...</span></span>
                                 </b>
                             </div>
                             <div class="col-sm-12 col-md-6">
                                 <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
-                                    <ul class="pagination" style="float:right">
-                                        <li class="paginate_button page-item previous disabled" id="example2_previous"><a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li>
-                                        <li class="paginate_button page-item active"><a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
-                                        <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
-                                        <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
-                                        <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
-                                        <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
-                                        <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
-                                        <li class="paginate_button page-item next" id="example2_next"><a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li>
+                                    <ul class="pagination">
                                     </ul>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- /.phân trang -->
                     </div>
                     <!-- /.card-body -->
                 </div>
@@ -190,8 +206,6 @@
     <script src="/Assets/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="/Assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Select2 -->
-    <script src="/Assets/plugins/select2/js/select2.full.min.js"></script>
     <!-- DataTables -->
     <script src="/Assets/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="/Assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -212,119 +226,12 @@
     <!-- BS-Stepper -->
     <script src="/Assets/plugins/bs-stepper/js/bs-stepper.min.js"></script>
 
+    <!-- dropzonejs -->
+    <script src="/Assets/plugins/dropzone/min/dropzone.min.js"></script>
+
     <script src="/Scripts/jquery.unobtrusive-ajax.min.js"></script>
 
-    <script>
-        $(function () {
-            $("#example1").DataTable({
-                "paging": false,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": false,
-                "info": false,
-                "autoWidth": false,
-                "responsive": true,
-
-            });
-        });
-        //----------------//
-
-        ////Initialize Select2 Elements
-        $('.select2').select2()
-        ////--------------//
-
-
-
-        //add class for slidebar
-        $('#GiaoVien').addClass('menu-open');
-        $('#GiaoVien>a').addClass('active');
-        //--------------//
-
-        //load data with change pagesize
-        $("#PageSize").change(function () {
-            $("#form1").submit();
-        });
-        //-------------//
-
-        // set class css for ỉtemPage- because pagelist not compatial boostrap 4 in this version of adminLTE
-        $('.pagination a').addClass('page-link');
-        //-------------//
-
-        // reset then open modal create Product
-        $('#bt_createDeTai').click(function () {
-            document.getElementById("createDeTai").reset();
-        });
-        //----------------//
-
-
-        class GiaoVienJS {
-            constructor() {
-
-            }
-            loadData() {
-                var table = $("#example1").DataTable();
-                $.each(data, function (index, item) {
-                    table.row.add([
-                        counter,
-                        item.Ma,
-                        item.Ten,
-                        item.LoaiSach,
-                        item.NoiXuatBan,
-                        item.SoTrangViet,
-                        item.NamHoc,
-                        item.KiHoc,
-                        item.SoGio
-                    ])
-                });
-
-            }
-
-            // reponse after creat new Detai
-            AddSuccess(data) {
-                var res = JSON.parse(data.responseText);
-                if (res.status == true) {
-                    $('.modal').css('display', 'none');
-                    toastr.success('Tạo mới thành công id');
-                    setTimeout(function () {
-                        window.location.reload();
-                    }, 2000);
-                }
-                else {
-                    $('.modal-body > .card-body').append("<p>! Không thể lưu. Vui lòng kiểm tra lại dữ liệu</p>");
-                }
-            };
-
-            AddFail(data) {
-                $('.modal-body > .card-body').append("<p>! Lỗi hệ thống</p>");
-            };
-            //-------------//
-
-            // reponse after delete DeTai
-            DelSuccess(id_product) {
-                var idTrs = "#row_" + id_product;
-                $(idTrs).remove();
-                var countItem = $('.countItem').last().text();
-                countItem = Number(countItem) - 1;
-                $('.countItem').text(countItem);
-
-                var countItemofPage = $('.countItemofPage').first().text();
-                countItemofPage = Number(countItemofPage) - 1;
-                $('.countItemofPage').text(countItemofPage);
-
-                var Toast = Swal.mixin({
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    timer: 5000
-                });
-                Toast.fire({
-                    icon: 'success',
-                    title: ' complish delete witd id ' + id_product
-                })
-            };
-        }
-
-    </script>
+    <script src="/Content/jsController/BienSoanSachJS.js"></script>
 
 }
 
