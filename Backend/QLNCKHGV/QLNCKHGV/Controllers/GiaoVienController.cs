@@ -38,8 +38,7 @@ namespace QLNCKHGV.Controllers
             }).ToList<GiaoVienModel>();
             int totalItems = listGiaoVien.Count;
             //.Skip(pageSize * pageNumber).Take(pageSize)
-            return Ok(new
-            {
+            return Ok(new {
                 items = listGiaoVien,
                 totals = totalItems
             });
