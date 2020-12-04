@@ -13,5 +13,10 @@ namespace FEQLGV.Controllers
         {
             return View();
         }
+        public ActionResult Detail(string id)
+        {
+            ViewBag.id = id;
+            return View();
+        }
     }
 }

@@ -26,85 +26,270 @@
     <!-- BS Stepper -->
     <link rel="stylesheet" href="/Assets/plugins/bs-stepper/css/bs-stepper.min.css">
 
-    <!-- dropzonejs -->
-    <link rel="stylesheet" href="/Assets/plugins/dropzone/min/dropzone.min.css">
+
 
 
     <style>
         body {
             padding-right: 0 !important
         }
+
+        th {
+            font-weight: normal !important
+        }
     </style>
 }
 
 <!-- Create Modal -->
 <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
-            <form>
+            <form id="createForm" action="#">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Title</h5>
+                    <h5 class="modal-title w-100 text-center" id="exampleModalCenterTitle">THÊM MỚI BÀI BÁO</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <div class="card-body">
-                        <button type="reset" class="btn btn-warning cancel">
-                            <i class="fas fa-sync-alt"></i>
-                            <span>Làm mới</span>
-                        </button>
+                        <div class="row">
+                            <div class="col-md-4 d-flex align-items-center">
+                                <label>Tên đề tài</label>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="name" placeholder="Bắt buộc" name="Ten">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 d-flex align-items-center">
+                                <label>Loại bài báo</label>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <select class="form-control" name="IdLoaiDeTai">
+                                        <option value="0" selected>Loại bài báo</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 d-flex align-items-center">
+                                <label>Cơ quan quản lý</label>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="address" placeholder="Không bắt buộc" name="CoQuanQuanLy">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 d-flex align-items-center">
+                                <label>Năm học</label>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <select class="form-control" name="NamHoc">
+                                        <option value="0" selected>Năm học</option>
+                                        <option value="2020-2021">2020-2021</option>
+                                        <option value="2019-2020">2019-2020</option>
+                                        <option value="2018-2019">2018-2019</option>
+                                        <option value="2017-2018">2017-2018</option>
+                                        <option value="2016-2017">2016-2017</option>
+                                        <option value="2015-2016">2015-2016</option>
+                                        <option value="2014-2015">2014-2015</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 d-flex align-items-center">
+                                <label>Kỳ học</label>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <select class="form-control" name="KiHoc">
+                                        <option value="0" selected>Kỳ học</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                            </div>
+                            <div class="col-md-8">
+                                <button type="reset" class="btn btn-warning cancel">
+                                    <i class="fas fa-sync-alt"></i>
+                                    <span>Làm mới</span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <input type="submit" id="Submit" name="Submit" class="btn btn-primary" value="Lưu" />
+                    <input type="button" id="CreateDeTai" name="Submit" class="btn btn-primary" value="Lưu" />
 
                 </div>
             </form>
+
         </div>
     </div>
 </div>
 <!-- /. Create Modal -->
-<!-- Create Modal -->
-<div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
+<!-- Edit Modal -->
+<div class="modal fade" id="edithModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
-            <form>
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="card-body">
-                        <button type="reset" class="btn btn-warning cancel">
-                            <i class="fas fa-sync-alt"></i>
-                            <span>Làm mới</span>
-                        </button>
+            <div class="modal-header">
+                <h5 class="modal-title w-100 text-center" id="exampleModalCenterTitle">SỬA BÀI BÁO</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4 d-flex align-items-center">
+                            <label>Mã bài báo</label>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="ma" placeholder="Bắt buộc" name="Ma" disabled="disabled">
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <input type="submit" id="Submit" name="Submit" class="btn btn-primary" value="Tìm kiếm" />
+                    <form id="EditForm" action="#">
+                        <div class="row">
+                            <div class="col-md-4 d-flex align-items-center">
+                                <label>Tên bài báo</label>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="name" placeholder="Bắt buộc" name="Ten">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 d-flex align-items-center">
+                                <label>Loại bài báo</label>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <select class="form-control" name="IdLoaiDeTai">
+                                        <option value="0" selected>Loại đề tài</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 d-flex align-items-center">
+                                <label>Cơ quan quản lý</label>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="address" placeholder="Không bắt buộc" name="CoQuanQuanLy">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 d-flex align-items-center">
+                                <label>Năm học</label>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <select class="form-control" name="NamHoc">
+                                        <option value="0" selected>Năm học</option>
+                                        <option value="2020-2021">2020-2021</option>
+                                        <option value="2019-2020">2019-2020</option>
+                                        <option value="2018-2019">2018-2019</option>
+                                        <option value="2017-2018">2017-2018</option>
+                                        <option value="2016-2017">2016-2017</option>
+                                        <option value="2015-2016">2015-2016</option>
+                                        <option value="2014-2015">2014-2015</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 d-flex align-items-center">
+                                <label>Kỳ học</label>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <select class="form-control" name="KiHoc">
+                                        <option value="0" selected>Kỳ học</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                            </div>
+                            <div class="col-md-8">
+                                <button type="reset" class="btn btn-warning cancel">
+                                    <i class="fas fa-sync-alt"></i>
+                                    <span>Làm mới</span>
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
 
                 </div>
-            </form>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <input type="button" id="EditDeTai" name="Submit" class="btn btn-primary" value="Lưu" />
+
+            </div>
         </div>
     </div>
 </div>
-<!-- /. Create Modal -->
+<!-- /. Edit Modal -->
+<!-- Confirm Delete Modal -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title w-100 text-center" id="exampleModalCenterTitle">XÁC NHẬN XÓA BÀI BÁO</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body d-flex flex-row-reverse">
+                <div class="m-1">
+                    <input type="submit" id="confirmDel" name="Submit" class="btn btn-primary" value="Đồng ý" />
+
+                </div>
+                <div class="m-1">
+                    <input type="submit" class="btn btn-default" data-dismiss="modal" value="Hủy" />
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- /. Confirm Delete Modal -->
 <!-- Header content -->
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Báo cáo</h1>
+                <h1>Bài báo</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item active">Quản lý báo cáo</li>
+                    <li class="breadcrumb-item active">Quản lý bài báo</li>
                 </ol>
             </div>
         </div>
@@ -121,88 +306,113 @@
                     <!-- card-header -->
                     <div class="card-header">
                         <!-- control content -->
-                        @using (Html.BeginForm("Index", "Product", FormMethod.Get, new { id = "form1" }))
-                        {
-                            <div class="row dataTables_wrapper">
 
-                                <div class="col-sm-12 col-md-6">
-                                    <div class="dataTables_length" id="example1_length">
-                                        <label>
-                                            Show
-                                            <select name="example1_length" aria-controls="example1" class="custom-select custom-select-sm form-control form-control-sm">
-                                                <option value="10">10</option>
-                                                <option value="25">25</option>
-                                                <option value="50">50</option>
-                                                <option value="100">100</option>
-                                            </select>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 col-md-6">
-                                    <div id="example1_filter" class="dataTables_filter">
-                                        <label>
-                                            Search:
-                                            <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1" name="searching" value="@ViewBag.SearchString">
-                                        </label>
-                                        <input type="submit" class="btn btn-block btn-warning btn-sm" value="Tìm kiếm" />
-                                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#searchModal">
-                                            <i class="fa fa-filter"></i> &nbsp;
-                                            Bộ lọc
-                                        </button>
-                                    </div>
+                        <div class="row dataTables_wrapper">
+
+                            <div class="col-sm-12 col-md-3">
+                                <div class="dataTables_length" id="example1_length">
+                                    <label>
+                                        Show
+                                        <select name="example1_length" aria-controls="example1" class="custom-select custom-select-sm form-control form-control-sm">
+                                            <option value="10">10</option>
+                                            <option value="25">25</option>
+                                            <option value="50">50</option>
+                                            <option value="100">100</option>
+                                        </select>
+                                    </label>
                                 </div>
                             </div>
-                        }
+                            <div class="col-sm-12 col-md-9">
+                                <div id="example1_filter" class="row dataTables_filter">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="search" class="form-control col-md-12" placeholder="search" aria-controls="example1" name="searching">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <!-- select -->
+                                        <div class="form-group">
+
+                                            <select class="form-control" name="NamHoc" id="searchNam">
+                                                <option value="0" selected>--Năm học--</option>
+                                                <option value="2020-2021">2020-2021</option>
+                                                <option value="2019-2020">2019-2020</option>
+                                                <option value="2018-2019">2018-2019</option>
+                                                <option value="2017-2018">2017-2018</option>
+                                                <option value="2016-2017">2016-2017</option>
+                                                <option value="2015-2016">2015-2016</option>
+                                                <option value="2014-2015">2014-2015</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <!-- select -->
+                                        <div class="form-group">
+                                            <select class="form-control" name="KiHoc" id="searchKi">
+                                                <option value="0" selected>--Kỳ học--</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button type="button" class="btn btn-success" id="bt_createDeTai" data-toggle="modal" data-target="#createModal">
+                                            <i class="fa fa-plus-square"></i> &nbsp;
+                                            Thêm mới
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- /.control content -->
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <!-- button -->
-                        @*<div class="card-footer">*@
-                        <button type="button" class="btn btn-success" id="bt_createProduct" data-toggle="modal" data-target="#createModal">
-                            <i class="fa fa-plus-square"></i> &nbsp;
-                            Thêm mới
-                        </button>
-                        @*</div>*@
-                        <!-- /.button-->
-                        <table id="example1" class="table table-bordered table-striped">
+                        <table id="example1" class="table table-hover">
                             <thead>
                                 <tr>
 
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th>Chức năng</th>
+                                    <th>STT</th>
+                                    <th>Mã bài báo</th>
+                                    <th>Tên bài báo</th>
+                                    <th>Loại bài báo</th>
+                                    <th>Tạp chí công bố</th>
+                                    <th>Số TV</th>
+                                    <th>Năm học</th>
+                                    <th>Kỳ học</th>
+                                    <th>Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody>
                             </tbody>
-
                         </table>
+                        <!-- processing load -->
+                        <div class="d-flex justify-content-center">
+                            <div class="processing-example text-info" role="status">
+
+                            </div>
+                            <span class="sr-only">Loading...</span>
+                        </div>
+
+                        <!-- phân trang -->
                         <div class="row dataTables_wrapper">
 
                             <div class="col-sm-12 col-md-6">
                                 <b style="color:navy">
-                                    <span>Đang hiển thị (<span class="startItemofPage">1</span>-<span class="countItemofPage">10</span>) / <span class="countItem">10</span></span>
+                                    <span>Đang hiển thị (<span class="startItemofPage">...</span>-<span class="endItemofPage">...</span>) / <span class="countItem">...</span></span>
                                 </b>
                             </div>
                             <div class="col-sm-12 col-md-6">
                                 <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
                                     <ul class="pagination">
-                                        <li class="paginate_button page-item previous disabled" id="example2_previous"><a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li>
-                                        <li class="paginate_button page-item active"><a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
-                                        <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
-                                        <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
-                                        <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
-                                        <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
-                                        <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
-                                        <li class="paginate_button page-item next" id="example2_next"><a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- /.phân trang -->
                     </div>
                     <!-- /.card-body -->
                 </div>
@@ -240,44 +450,11 @@
     <!-- BS-Stepper -->
     <script src="/Assets/plugins/bs-stepper/js/bs-stepper.min.js"></script>
 
-    <!-- dropzonejs -->
-    <script src="/Assets/plugins/dropzone/min/dropzone.min.js"></script>
+    <script src="/Scripts/jquery.unobtrusive-ajax.min.js"></script>
 
     <script src="/Scripts/jquery.unobtrusive-ajax.min.js"></script>
 
-    <script>
-        $(function () {
-            $("#example1").DataTable({
-                "paging": false,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": false,
-                "autoWidth": false,
-                "responsive": true,
-
-            });
-        });
-        //----------------//
-
-        //add class for slidebar
-        $('#BaiBao').addClass('menu-open');
-        $('#BaiBao>a').addClass('active');
-        //--------------//
-
-        //load data with change pagesize
-        $("#PageSize").change(function () {
-            $("#form1").submit();
-        });
-        //-------------//
-
-        // set class css for ỉtemPage- because pagelist not compatial boostrap 4 in this version of adminLTE
-        $('.pagination a').addClass('page-link');
-                //-------------//
-
-
-    </script>
-
+    <script src="~/Content/jsController/BaiBaoJS.js"></script>
 }
 
 
