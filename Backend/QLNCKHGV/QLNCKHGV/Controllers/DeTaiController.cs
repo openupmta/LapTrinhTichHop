@@ -245,12 +245,12 @@ namespace QLNCKHGV.Controllers
         }
 
         [Route("api/DeTai/GetDeTaiByGiaoVien")]
-        public IHttpActionResult GetDeTaiByGiaoVien(int idGiaoVien, string nam, int ki)
+        public IHttpActionResult GetDeTaiByGiaoVien(int idGiaoVien, string nam, int? ki, int pageNumber, int pageSize)
         {
             IList<DeTaiModel> listItems = null;
             listItems = (from k in db.DeTais
                          join gv_dt in db.GV_DeTai on k.Id equals gv_dt.IdDeTai
-                         where gv_dt.IdGiaoVien == idGiaoVien && k.NamHoc == nam && k.KiHoc == ki
+                         where gv_dt.IdGiaoVien == idGiaoVien
                          select new DeTaiModel()
                          {
                              Id = k.Id,
@@ -270,7 +270,21 @@ namespace QLNCKHGV.Controllers
                              }
                          }).ToList<DeTaiModel>();
 
-            return Ok(listItems);
+            if (ki != null)
+            {
+                listItems = listItems.Where(x => x.KiHoc == ki).ToList();
+            }
+            if (nam != null)
+            {
+                listItems = listItems.Where(x => x.NamHoc == nam).ToList();
+            }
+            int totalItems = listItems.Count;
+
+            return Ok(new
+            {
+                items = listItems.ToPagedList(pageNumber + 1, pageSize),
+                totals = totalItems
+            });
         }
 
         [Route("api/DeTai/ThemDeTai")]

@@ -246,12 +246,12 @@ namespace QLNCKHGV.Controllers
         }
 
         [Route("api/Sach/GetSachByGiaoVien")]
-        public IHttpActionResult GetSachByGiaoVien(int idGiaoVien, string nam, int ki)
+        public IHttpActionResult GetSachByGiaoVien(int idGiaoVien, string nam, int? ki, int pageNumber, int pageSize)
         {
             IList<SachModel> listItems = null;
             listItems = (from k in db.Saches
                          join gv_dt in db.GV_Sach on k.Id equals gv_dt.IdSach
-                         where gv_dt.IdGiaoVien == idGiaoVien && k.NamHoc == nam && k.KiHoc == ki
+                         where gv_dt.IdGiaoVien == idGiaoVien
                          select new SachModel()
                          {
                              Id = k.Id,
@@ -271,7 +271,21 @@ namespace QLNCKHGV.Controllers
                              }
                          }).ToList<SachModel>();
 
-            return Ok(listItems);
+            if (ki != null)
+            {
+                listItems = listItems.Where(x => x.KiHoc == ki).ToList();
+            }
+            if (nam != null)
+            {
+                listItems = listItems.Where(x => x.NamHoc == nam).ToList();
+            }
+            int totalItems = listItems.Count;
+
+            return Ok(new
+            {
+                items = listItems.ToPagedList(pageNumber + 1, pageSize),
+                totals = totalItems
+            });
         }
 
         [Route("api/Sach/ThemSach")]

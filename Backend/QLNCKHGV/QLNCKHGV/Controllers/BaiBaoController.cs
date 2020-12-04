@@ -243,12 +243,12 @@ namespace QLNCKHGV.Controllers
         }
 
         [Route("api/BaiBao/GetBaiBaoByGiaoVien")]
-        public IHttpActionResult GetBaiBaoByGiaoVien(int idGiaoVien, string nam, int ki)
+        public IHttpActionResult GetBaiBaoByGiaoVien(int idGiaoVien, string nam, int? ki, int pageNumber, int pageSize)
         {
             IList<BaiBaoModel> listItems = null;
             listItems = (from k in db.BaiBaos
                             join gv_bb in db.GV_BaiBao on k.Id equals gv_bb.IdBaiBao
-                            where gv_bb.IdGiaoVien==idGiaoVien && k.NamHoc==nam && k.KiHoc==ki
+                            where gv_bb.IdGiaoVien==idGiaoVien
                             select new BaiBaoModel()
                             {
                              Id = k.Id,
@@ -267,7 +267,21 @@ namespace QLNCKHGV.Controllers
                              }
                          }).ToList<BaiBaoModel>();
 
-            return Ok(listItems);
+            if (ki != null)
+            {
+                listItems = listItems.Where(x => x.KiHoc == ki).ToList();
+            }
+            if (nam != null)
+            {
+                listItems = listItems.Where(x => x.NamHoc == nam).ToList();
+            }
+            int totalItems = listItems.Count;
+
+            return Ok(new
+            {
+                items = listItems.ToPagedList(pageNumber + 1, pageSize),
+                totals = totalItems
+            });
         }
 
         [Route("api/BaiBao/ThemBaiBao")]

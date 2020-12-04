@@ -25,7 +25,7 @@ namespace QLNCKHGV
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            config.EnableCors(new EnableCorsAttribute("http://localhost:4200", "*", "*"));
+            config.EnableCors(new EnableCorsAttribute("https://localhost:44398", "*", "*"));
 
         }
     }
